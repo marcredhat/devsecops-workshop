@@ -42,7 +42,7 @@ for (( i = $begin; i <= $count; i++ )); do
  oc new-project ocwt-$PRJ_SUFFIX
 
  # Deploy web terminal container.
- oc new-app --docker-image=quay.io/openshifthomeroom/workshop-terminal --env=OC_VERSION={{ openshift_minor }}.{{ openshift_major }} -n ocwt-$PRJ_SUFFIX
+ oc new-app --docker-image=quay.io/openshifthomeroom/workshop-terminal --env=OC_VERSION={{ openshift_version }} -n ocwt-$PRJ_SUFFIX
 
  # Expose web terminal container.
  oc expose svc/workshop-terminal -n ocwt-$PRJ_SUFFIX
