@@ -3,6 +3,7 @@
 tmp/
 webpage/*-index.html
 
-vars/aws.yml
-vars/aws.env
-vars/devsecops.yml
+vars/*
+!vars/aws.example.env
+!vars/aws.example.yml
+!vars/devsecops.example.yml
