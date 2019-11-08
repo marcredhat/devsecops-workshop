@@ -342,7 +342,7 @@ objects:
                 --form retype=$GOGS_PWD \
                 --form email=admin@gogs.com)
 
-              if [ $_RETURN == "200" || [ $_RETURN == "302" ]
+              if [ $_RETURN == "200" ] || [ $_RETURN == "302" ]
               then
                 echo "SUCCESS: Created gogs admin user"
                 break
