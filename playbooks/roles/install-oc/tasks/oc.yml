@@ -8,9 +8,15 @@
   register: task_result
   become: true
 
+- name: Check if oc command exists
+  stat: 
+    path: /usr/bin/oc
+  register: oc_command
+
 - name: Install openshift command-line interface
-  shell: "curl -L 'https://mirror.openshift.com/pub/openshift-v3/clients/{{ openshift_version }}.{{ openshift_patch }}/linux/oc.tar.gz' | tar -xvzf - -C /usr/bin oc &>/dev/null"
+  shell: "curl -L 'https://mirror.openshift.com/pub/openshift-v3/clients/{{ openshift_version_minor }}/linux/oc.tar.gz' | tar -xvzf - -C /usr/bin oc &>/dev/null"
   become: true
+  when: oc_command.stat.exists == False
 
 - name: Configure oc bash command complete
   shell: "oc completion bash > /etc/profile.d/oc.sh"
