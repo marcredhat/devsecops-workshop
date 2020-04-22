@@ -41,9 +41,9 @@
 
   roles:
    - install-oc
+   - install-epel
    - install-jq
    - install-pip
-   - install-epel
    - install-passlib
    - install-git
    - install-oscap
